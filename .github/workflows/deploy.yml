@@ -32,9 +32,20 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - run: pnpm check
 
-      - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+      # Package Pages directly: upload-pages-artifact v3 has an unpinned nested action.
+      - name: Archive GitHub Pages artifact
+        run: >-
+          tar --dereference --hard-dereference
+          --directory dist
+          -cf "$RUNNER_TEMP/artifact.tar"
+          --exclude=.git --exclude=.github .
+
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          path: dist
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 1
+          if-no-files-found: error
 
       - uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
         id: deployment
