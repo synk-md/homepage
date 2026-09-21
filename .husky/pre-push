@@ -1,0 +1,7 @@
+# Husky adds node_modules/.bin to PATH, including in non-interactive shells.
+set -e
+
+eslint .
+vitest run
+tsc --noEmit
+vite build
