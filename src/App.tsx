@@ -84,7 +84,6 @@ function HeroSection() {
       <RippleField />
       <div className="hero-content">
         <div className="eyebrow">
-          <DropIcon />
           Local-first collaborative notes
         </div>
         <h1>
@@ -248,14 +247,6 @@ function RippleField() {
         <ellipse cx="700" cy="350" rx="580" ry="197" opacity=".05" />
         <ellipse cx="700" cy="350" rx="700" ry="238" opacity=".03" />
       </g>
-    </svg>
-  )
-}
-
-function DropIcon() {
-  return (
-    <svg width="11" height="14" viewBox="0 0 64 80" aria-hidden="true">
-      <path d="M32 4 C 33 26 48 38 48 52 a 16 16 0 1 1 -32 0 C 16 38 31 26 32 4 z" fill="var(--accent)" />
     </svg>
   )
 }
