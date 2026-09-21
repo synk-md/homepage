@@ -10,8 +10,6 @@ export function Nav({ page = "home" }: { page?: "home" | "roadmap" }) {
           <span className="brand-name">Synk</span>
         </a>
         <div className="nav-links">
-          <a href="/#features" className="nav-link">Features</a>
-          <a href="/#how" className="nav-link">How it works</a>
           <a href="/roadmap/" className={`nav-link${page === "roadmap" ? " nav-link--active" : ""}`}>Roadmap</a>
           <a href={GITHUB_URL} target="_blank" rel="noopener" className="nav-link">GitHub</a>
         </div>
@@ -32,13 +30,14 @@ export function SiteFooter() {
             <img src="/logo.svg" alt="Synk logo" />
             <span className="brand-name">Synk</span>
           </div>
-          <p className="footer-tagline">A local-first, real-time collaborative note editor. Your words stay on your device.</p>
+          <blockquote className="footer-tagline">
+            <p>&ldquo;People need new tools to work with rather than new tools that work for them.&rdquo;</p>
+            <footer className="footer-quote-cite">&mdash; Ivan Illich, <cite>Tools for Conviviality</cite></footer>
+          </blockquote>
         </div>
         <div className="footer-cols">
           <div className="footer-col">
             <div className="footer-col-head">Product</div>
-            <a href="/#features" className="footer-link">Features</a>
-            <a href="/#how" className="footer-link">How it works</a>
             <a href="/roadmap/" className="footer-link">Roadmap</a>
           </div>
         </div>
